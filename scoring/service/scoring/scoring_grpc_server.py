@@ -10,6 +10,7 @@ import scoring2
 import grpc
 import scoring_service_pb2
 import scoring_service_pb2_grpc
+from google.protobuf.json_format import MessageToDict, ParseDict
 
 
 # # retrieve data from database
@@ -83,11 +84,13 @@ class ScoringServer(scoring_service_pb2_grpc.ScoringServicer):
         floorplan = class_floorplan_copy.Floorplan(figure_path)
         graph = floorplan.generate_connectivity_graph()
         graph = json_graph.node_link_data(graph)
-        return graph
+        graph_message = ParseDict(graph, scoring_service_pb2.Graph())
+        return graph_message
 
     # request is a json_graph.node_link_data message
     def GenerateScore(self, request, context):
-        rooms = scoring2.Rooms.create_from_json(request)
+        request_dict = MessageToDict(request)
+        rooms = scoring2.Rooms.create_from_json(request_dict)
         score_common_area = rooms.get_score_commonarea()
         score_functional = rooms.get_score_function()
         score_corridor = rooms.get_score_corridor()
