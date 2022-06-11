@@ -14,35 +14,25 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15scoring_service.proto\x12\x07scoring\"\\\n\x08\x44\x61tabase\x12%\n\x02\x64\x62\x18\x01 \x03(\x0b\x32\x19.scoring.Database.DbEntry\x1a)\n\x07\x44\x62\x45ntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\"8\n\tFloorplan\x12\x1f\n\x06\x66igure\x18\x01 \x01(\x0b\x32\x0f.scoring.Figure\x12\n\n\x02id\x18\x02 \x01(\t\"\x17\n\x06\x46igure\x12\r\n\x05image\x18\x01 \x01(\x0c\"\xa0\x03\n\x05Graph\x12\x10\n\x08\x64irected\x18\x01 \x01(\x08\x12\x12\n\nmultigraph\x18\x02 \x01(\x08\x12=\n\x10graph_attributes\x18\x03 \x03(\x0b\x32#.scoring.Graph.GraphAttributesEntry\x1a\x36\n\x14GraphAttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1ak\n\tnode_info\x12\x31\n\x05nodes\x18\x01 \x03(\x0b\x32\".scoring.Graph.node_info.node_dict\x1a+\n\tnode_dict\x12\x0c\n\x04\x61rea\x18\x01 \x01(\x01\x12\x10\n\x08value_id\x18\x02 \x01(\t\x1a\x8c\x01\n\tlink_info\x12\x31\n\x05links\x18\x01 \x03(\x0b\x32\".scoring.Graph.link_info.link_dict\x1aL\n\tlink_dict\x12\r\n\x05\x63olor\x18\x01 \x01(\t\x12\x10\n\x08\x64istance\x18\x02 \x01(\x01\x12\x0e\n\x06source\x18\x03 \x01(\t\x12\x0e\n\x06target\x18\x04 \x01(\t\"\x9b\x01\n\x06Scores\x12\x18\n\x10score_commonarea\x18\x01 \x01(\x01\x12\x18\n\x10score_functional\x18\x02 \x01(\x01\x12\x16\n\x0escore_corridor\x18\x03 \x01(\x01\x12\"\n\x1ascore_connectivity_private\x18\x04 \x01(\x01\x12!\n\x19score_connectivity_public\x18\x05 \x01(\x01\x32\xae\x01\n\x07Scoring\x12\x38\n\x0bGetNewGraph\x12\x11.scoring.Database\x1a\x12.scoring.Floorplan\"\x00\x30\x01\x12\x35\n\rGenerateGraph\x12\x12.scoring.Floorplan\x1a\x0e.scoring.Graph\"\x00\x12\x32\n\rGenerateScore\x12\x0e.scoring.Graph\x1a\x0f.scoring.Scores\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15scoring_service.proto\x12\x07scoring\"\x1e\n\x04time\x12\x0b\n\x03\x64\x61y\x18\x01 \x01(\t\x12\t\n\x01t\x18\x02 \x01(\t\"/\n\tFloorplan\x12\x16\n\x0e\x66loorplan_path\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\"e\n\tnode_info\x12+\n\x05nodes\x18\x01 \x03(\x0b\x32\x1c.scoring.node_info.node_dict\x1a+\n\tnode_dict\x12\x0c\n\x04\x61rea\x18\x01 \x01(\x01\x12\x10\n\x08value_id\x18\x02 \x01(\t\"\x86\x01\n\tlink_info\x12+\n\x05links\x18\x01 \x03(\x0b\x32\x1c.scoring.link_info.link_dict\x1aL\n\tlink_dict\x12\r\n\x05\x63olor\x18\x01 \x01(\t\x12\x10\n\x08\x64istance\x18\x02 \x01(\x01\x12\x0e\n\x06source\x18\x03 \x01(\t\x12\x0e\n\x06target\x18\x04 \x01(\t\"\xea\x01\n\x05Graph\x12\x10\n\x08\x64irected\x18\x01 \x01(\x08\x12\x12\n\nmultigraph\x18\x02 \x01(\x08\x12=\n\x10graph_attributes\x18\x03 \x03(\x0b\x32#.scoring.Graph.GraphAttributesEntry\x12!\n\x05nodes\x18\x04 \x01(\x0b\x32\x12.scoring.node_info\x12!\n\x05links\x18\x05 \x01(\x0b\x32\x12.scoring.link_info\x1a\x36\n\x14GraphAttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x9b\x01\n\x06Scores\x12\x18\n\x10score_commonarea\x18\x01 \x01(\x01\x12\x18\n\x10score_functional\x18\x02 \x01(\x01\x12\x16\n\x0escore_corridor\x18\x03 \x01(\x01\x12\"\n\x1ascore_connectivity_private\x18\x04 \x01(\x01\x12!\n\x19score_connectivity_public\x18\x05 \x01(\x01\x32\xaa\x01\n\x07Scoring\x12\x34\n\x0bGetNewGraph\x12\r.scoring.time\x1a\x12.scoring.Floorplan\"\x00\x30\x01\x12\x35\n\rGenerateGraph\x12\x12.scoring.Floorplan\x1a\x0e.scoring.Graph\"\x00\x12\x32\n\rGenerateScore\x12\x0e.scoring.Graph\x1a\x0f.scoring.Scores\"\x00\x62\x06proto3')
 
 
 
-_DATABASE = DESCRIPTOR.message_types_by_name['Database']
-_DATABASE_DBENTRY = _DATABASE.nested_types_by_name['DbEntry']
+_TIME = DESCRIPTOR.message_types_by_name['time']
 _FLOORPLAN = DESCRIPTOR.message_types_by_name['Floorplan']
-_FIGURE = DESCRIPTOR.message_types_by_name['Figure']
+_NODE_INFO = DESCRIPTOR.message_types_by_name['node_info']
+_NODE_INFO_NODE_DICT = _NODE_INFO.nested_types_by_name['node_dict']
+_LINK_INFO = DESCRIPTOR.message_types_by_name['link_info']
+_LINK_INFO_LINK_DICT = _LINK_INFO.nested_types_by_name['link_dict']
 _GRAPH = DESCRIPTOR.message_types_by_name['Graph']
 _GRAPH_GRAPHATTRIBUTESENTRY = _GRAPH.nested_types_by_name['GraphAttributesEntry']
-_GRAPH_NODE_INFO = _GRAPH.nested_types_by_name['node_info']
-_GRAPH_NODE_INFO_NODE_DICT = _GRAPH_NODE_INFO.nested_types_by_name['node_dict']
-_GRAPH_LINK_INFO = _GRAPH.nested_types_by_name['link_info']
-_GRAPH_LINK_INFO_LINK_DICT = _GRAPH_LINK_INFO.nested_types_by_name['link_dict']
 _SCORES = DESCRIPTOR.message_types_by_name['Scores']
-Database = _reflection.GeneratedProtocolMessageType('Database', (_message.Message,), {
-
-  'DbEntry' : _reflection.GeneratedProtocolMessageType('DbEntry', (_message.Message,), {
-    'DESCRIPTOR' : _DATABASE_DBENTRY,
-    '__module__' : 'scoring_service_pb2'
-    # @@protoc_insertion_point(class_scope:scoring.Database.DbEntry)
-    })
-  ,
-  'DESCRIPTOR' : _DATABASE,
+time = _reflection.GeneratedProtocolMessageType('time', (_message.Message,), {
+  'DESCRIPTOR' : _TIME,
   '__module__' : 'scoring_service_pb2'
-  # @@protoc_insertion_point(class_scope:scoring.Database)
+  # @@protoc_insertion_point(class_scope:scoring.time)
   })
-_sym_db.RegisterMessage(Database)
-_sym_db.RegisterMessage(Database.DbEntry)
+_sym_db.RegisterMessage(time)
 
 Floorplan = _reflection.GeneratedProtocolMessageType('Floorplan', (_message.Message,), {
   'DESCRIPTOR' : _FLOORPLAN,
@@ -51,12 +41,35 @@ Floorplan = _reflection.GeneratedProtocolMessageType('Floorplan', (_message.Mess
   })
 _sym_db.RegisterMessage(Floorplan)
 
-Figure = _reflection.GeneratedProtocolMessageType('Figure', (_message.Message,), {
-  'DESCRIPTOR' : _FIGURE,
+node_info = _reflection.GeneratedProtocolMessageType('node_info', (_message.Message,), {
+
+  'node_dict' : _reflection.GeneratedProtocolMessageType('node_dict', (_message.Message,), {
+    'DESCRIPTOR' : _NODE_INFO_NODE_DICT,
+    '__module__' : 'scoring_service_pb2'
+    # @@protoc_insertion_point(class_scope:scoring.node_info.node_dict)
+    })
+  ,
+  'DESCRIPTOR' : _NODE_INFO,
   '__module__' : 'scoring_service_pb2'
-  # @@protoc_insertion_point(class_scope:scoring.Figure)
+  # @@protoc_insertion_point(class_scope:scoring.node_info)
   })
-_sym_db.RegisterMessage(Figure)
+_sym_db.RegisterMessage(node_info)
+_sym_db.RegisterMessage(node_info.node_dict)
+
+link_info = _reflection.GeneratedProtocolMessageType('link_info', (_message.Message,), {
+
+  'link_dict' : _reflection.GeneratedProtocolMessageType('link_dict', (_message.Message,), {
+    'DESCRIPTOR' : _LINK_INFO_LINK_DICT,
+    '__module__' : 'scoring_service_pb2'
+    # @@protoc_insertion_point(class_scope:scoring.link_info.link_dict)
+    })
+  ,
+  'DESCRIPTOR' : _LINK_INFO,
+  '__module__' : 'scoring_service_pb2'
+  # @@protoc_insertion_point(class_scope:scoring.link_info)
+  })
+_sym_db.RegisterMessage(link_info)
+_sym_db.RegisterMessage(link_info.link_dict)
 
 Graph = _reflection.GeneratedProtocolMessageType('Graph', (_message.Message,), {
 
@@ -66,44 +79,12 @@ Graph = _reflection.GeneratedProtocolMessageType('Graph', (_message.Message,), {
     # @@protoc_insertion_point(class_scope:scoring.Graph.GraphAttributesEntry)
     })
   ,
-
-  'node_info' : _reflection.GeneratedProtocolMessageType('node_info', (_message.Message,), {
-
-    'node_dict' : _reflection.GeneratedProtocolMessageType('node_dict', (_message.Message,), {
-      'DESCRIPTOR' : _GRAPH_NODE_INFO_NODE_DICT,
-      '__module__' : 'scoring_service_pb2'
-      # @@protoc_insertion_point(class_scope:scoring.Graph.node_info.node_dict)
-      })
-    ,
-    'DESCRIPTOR' : _GRAPH_NODE_INFO,
-    '__module__' : 'scoring_service_pb2'
-    # @@protoc_insertion_point(class_scope:scoring.Graph.node_info)
-    })
-  ,
-
-  'link_info' : _reflection.GeneratedProtocolMessageType('link_info', (_message.Message,), {
-
-    'link_dict' : _reflection.GeneratedProtocolMessageType('link_dict', (_message.Message,), {
-      'DESCRIPTOR' : _GRAPH_LINK_INFO_LINK_DICT,
-      '__module__' : 'scoring_service_pb2'
-      # @@protoc_insertion_point(class_scope:scoring.Graph.link_info.link_dict)
-      })
-    ,
-    'DESCRIPTOR' : _GRAPH_LINK_INFO,
-    '__module__' : 'scoring_service_pb2'
-    # @@protoc_insertion_point(class_scope:scoring.Graph.link_info)
-    })
-  ,
   'DESCRIPTOR' : _GRAPH,
   '__module__' : 'scoring_service_pb2'
   # @@protoc_insertion_point(class_scope:scoring.Graph)
   })
 _sym_db.RegisterMessage(Graph)
 _sym_db.RegisterMessage(Graph.GraphAttributesEntry)
-_sym_db.RegisterMessage(Graph.node_info)
-_sym_db.RegisterMessage(Graph.node_info.node_dict)
-_sym_db.RegisterMessage(Graph.link_info)
-_sym_db.RegisterMessage(Graph.link_info.link_dict)
 
 Scores = _reflection.GeneratedProtocolMessageType('Scores', (_message.Message,), {
   'DESCRIPTOR' : _SCORES,
@@ -116,32 +97,26 @@ _SCORING = DESCRIPTOR.services_by_name['Scoring']
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _DATABASE_DBENTRY._options = None
-  _DATABASE_DBENTRY._serialized_options = b'8\001'
   _GRAPH_GRAPHATTRIBUTESENTRY._options = None
   _GRAPH_GRAPHATTRIBUTESENTRY._serialized_options = b'8\001'
-  _DATABASE._serialized_start=34
-  _DATABASE._serialized_end=126
-  _DATABASE_DBENTRY._serialized_start=85
-  _DATABASE_DBENTRY._serialized_end=126
-  _FLOORPLAN._serialized_start=128
-  _FLOORPLAN._serialized_end=184
-  _FIGURE._serialized_start=186
-  _FIGURE._serialized_end=209
-  _GRAPH._serialized_start=212
-  _GRAPH._serialized_end=628
-  _GRAPH_GRAPHATTRIBUTESENTRY._serialized_start=322
-  _GRAPH_GRAPHATTRIBUTESENTRY._serialized_end=376
-  _GRAPH_NODE_INFO._serialized_start=378
-  _GRAPH_NODE_INFO._serialized_end=485
-  _GRAPH_NODE_INFO_NODE_DICT._serialized_start=442
-  _GRAPH_NODE_INFO_NODE_DICT._serialized_end=485
-  _GRAPH_LINK_INFO._serialized_start=488
-  _GRAPH_LINK_INFO._serialized_end=628
-  _GRAPH_LINK_INFO_LINK_DICT._serialized_start=552
-  _GRAPH_LINK_INFO_LINK_DICT._serialized_end=628
-  _SCORES._serialized_start=631
-  _SCORES._serialized_end=786
-  _SCORING._serialized_start=789
-  _SCORING._serialized_end=963
+  _TIME._serialized_start=34
+  _TIME._serialized_end=64
+  _FLOORPLAN._serialized_start=66
+  _FLOORPLAN._serialized_end=113
+  _NODE_INFO._serialized_start=115
+  _NODE_INFO._serialized_end=216
+  _NODE_INFO_NODE_DICT._serialized_start=173
+  _NODE_INFO_NODE_DICT._serialized_end=216
+  _LINK_INFO._serialized_start=219
+  _LINK_INFO._serialized_end=353
+  _LINK_INFO_LINK_DICT._serialized_start=277
+  _LINK_INFO_LINK_DICT._serialized_end=353
+  _GRAPH._serialized_start=356
+  _GRAPH._serialized_end=590
+  _GRAPH_GRAPHATTRIBUTESENTRY._serialized_start=536
+  _GRAPH_GRAPHATTRIBUTESENTRY._serialized_end=590
+  _SCORES._serialized_start=593
+  _SCORES._serialized_end=748
+  _SCORING._serialized_start=751
+  _SCORING._serialized_end=921
 # @@protoc_insertion_point(module_scope)

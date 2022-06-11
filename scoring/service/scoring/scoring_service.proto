@@ -27,27 +27,32 @@ message Floorplan {
 }
 
 
+message node_info {
+	message node_dict {
+		double area = 1;
+	    string value_id = 2;
+	}
+	repeated node_dict nodes = 1;
+}
+
+message link_info{
+	message link_dict {
+		string color = 1;
+		double distance = 2;
+		string source = 3;
+		string target = 4;
+	}
+	repeated link_dict links = 1;
+}
+
+
 message Graph{
 	bool directed = 1;
 	bool multigraph = 2;
 	map<string, string> graph_attributes = 3;
-	message node_info {
-		message node_dict {
-			double area = 1;
-		    string value_id = 2;
-		}
-		repeated node_dict nodes = 1;
-	}
+	node_info nodes = 4;
+	link_info links = 5;
 
-	message link_info{
-		message link_dict {
-			string color = 1;
-			double distance = 2;
-			string source = 3;
-			string target = 4;
-		}
-		repeated link_dict links = 1;
-	}
 }
 
 message Scores{

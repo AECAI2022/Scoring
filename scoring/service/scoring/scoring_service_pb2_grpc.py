@@ -17,7 +17,7 @@ class ScoringStub(object):
         """
         self.GetNewGraph = channel.unary_stream(
                 '/scoring.Scoring/GetNewGraph',
-                request_serializer=scoring__service__pb2.Database.SerializeToString,
+                request_serializer=scoring__service__pb2.time.SerializeToString,
                 response_deserializer=scoring__service__pb2.Floorplan.FromString,
                 )
         self.GenerateGraph = channel.unary_unary(
@@ -59,7 +59,7 @@ def add_ScoringServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetNewGraph': grpc.unary_stream_rpc_method_handler(
                     servicer.GetNewGraph,
-                    request_deserializer=scoring__service__pb2.Database.FromString,
+                    request_deserializer=scoring__service__pb2.time.FromString,
                     response_serializer=scoring__service__pb2.Floorplan.SerializeToString,
             ),
             'GenerateGraph': grpc.unary_unary_rpc_method_handler(
@@ -95,7 +95,7 @@ class Scoring(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/scoring.Scoring/GetNewGraph',
-            scoring__service__pb2.Database.SerializeToString,
+            scoring__service__pb2.time.SerializeToString,
             scoring__service__pb2.Floorplan.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

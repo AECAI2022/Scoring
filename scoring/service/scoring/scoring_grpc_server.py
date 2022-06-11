@@ -1,5 +1,4 @@
-import pandas as pd
-import numpy as np
+import logging
 import pymysql
 from networkx.readwrite import json_graph
 from concurrent import futures
@@ -87,7 +86,7 @@ class ScoringServer(scoring_service_pb2_grpc.ScoringServicer):
         graph_message = ParseDict(graph, scoring_service_pb2.Graph())
         return graph_message
 
-    # request is a json_graph.node_link_data message
+    # request is a dict_like message
     def GenerateScore(self, request, context):
         request_dict = MessageToDict(request)
         rooms = scoring2.Rooms.create_from_json(request_dict)
@@ -111,7 +110,9 @@ def serve():
     server.start()
     server.wait_for_termination()
 
-
+if __name__ == '__main__':
+    logging.basicConfig()
+    serve()
 
 
 
