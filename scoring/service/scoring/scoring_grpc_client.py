@@ -2,6 +2,8 @@ import grpc
 import scoring_service_pb2
 import scoring_service_pb2_grpc
 
+from datetime import datetime
+
 
 def cilent_get_gew_graph(stub, time):
     graph_list = stub.GetNewGraph(time)
@@ -22,3 +24,9 @@ def client_generate_score(stub, graph):
 def run():
     with grpc.insecure_channel('localhost:50051') as channel:
         stub = scoring_service_pb2_grpc.ScoringStub(channel)
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+        floorplan_list = cilent_get_gew_graph(stub, current_time)
+        for floorplan in floorplan_list:
+            graph = client_generate_new_graph(stub,floorplan)
+            client_generate_score(stub, graph)
